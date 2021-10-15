@@ -61,6 +61,15 @@ public class TexBoxPage {
         driver.findElement(permanentAddress).sendKeys(inputPermanentAddress);
     }
 
+    public void preencherFormularioCompleto(
+            String name, String inputEmail,
+            String InputCurrentAddress, String inputPermanentAddress ){
+        driver.findElement(fullName).sendKeys(name);
+        driver.findElement(email).sendKeys(inputEmail);
+        driver.findElement(currentAddress).sendKeys(InputCurrentAddress);
+        driver.findElement(permanentAddress).sendKeys(inputPermanentAddress);
+    }
+
     public void clicarBtnSubmit(){
         driver.findElement(btnSubmit).click();
     }

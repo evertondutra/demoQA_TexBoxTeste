@@ -51,10 +51,11 @@ public class HomePageTests extends BaseTests {
     public void testPreencherInput_ValidarRetornoFormulario() throws IOException {
         ElementsPage elementsPage = homePage.clicarBtnElements();
         TexBoxPage texBoxPage = elementsPage.clicarBtnTexBox();
-        texBoxPage.preencherFullName(name);
-        texBoxPage.preencherEmail(inputEmail);
-        texBoxPage.preencherCurrentAddress(inputCurrentAddress);
-        texBoxPage.preencherPermanentAddress(inputPermanentAddress);
+        texBoxPage.preencherFormularioCompleto(name, inputEmail, inputCurrentAddress, inputPermanentAddress);
+//        texBoxPage.preencherFullName(name);
+//        texBoxPage.preencherEmail(inputEmail);
+//        texBoxPage.preencherCurrentAddress(inputCurrentAddress);
+//        texBoxPage.preencherPermanentAddress(inputPermanentAddress);
         texBoxPage.clicarBtnSubmit();
 
         capturarTela(name);

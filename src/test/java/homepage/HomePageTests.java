@@ -2,6 +2,8 @@ package homepage;
 
 import base.BaseTests;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import pages.ElementsPage;
 import pages.TexBoxPage;
 
@@ -14,10 +16,10 @@ import static org.hamcrest.Matchers.is;
 public class HomePageTests extends BaseTests {
 
 
-    String name = "Edu";
-    String inputEmail = "teste@teste.com";
-    String inputCurrentAddress = "Carapicuiba";
-    String inputPermanentAddress = "Osasco";
+//    String name = "Everton";
+//    String inputEmail = "teste@teste.com";
+//    String inputCurrentAddress = "Carapicuiba";
+//    String inputPermanentAddress = "Osasco";
 
     @Test
     public void testContarElementos_seisElementos(){
@@ -47,8 +49,10 @@ public class HomePageTests extends BaseTests {
         assertThat(texBoxPage.contarTotalInput(), is(4));
     }
 
-    @Test
-    public void testPreencherInput_ValidarRetornoFormulario() throws IOException {
+    @ParameterizedTest
+    @CsvSource({"Tone, tone@tone.com, osasco, jandira", "Gra, gra@teste.com, carapicuiba, osasco"})
+    public void testPreencherInput_ValidarRetornoFormulario(String name, String inputEmail, String inputCurrentAddress,
+                                                            String inputPermanentAddress) throws IOException {
         ElementsPage elementsPage = homePage.clicarBtnElements();
         TexBoxPage texBoxPage = elementsPage.clicarBtnTexBox();
         texBoxPage.preencherFormularioCompleto(name, inputEmail, inputCurrentAddress, inputPermanentAddress);

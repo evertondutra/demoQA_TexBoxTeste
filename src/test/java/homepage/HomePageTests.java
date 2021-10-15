@@ -5,13 +5,16 @@ import org.junit.jupiter.api.Test;
 import pages.ElementsPage;
 import pages.TexBoxPage;
 
+import java.io.IOException;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 
 public class HomePageTests extends BaseTests {
 
-    String name = "Everton";
+
+    String name = "Edu";
     String inputEmail = "teste@teste.com";
     String inputCurrentAddress = "Carapicuiba";
     String inputPermanentAddress = "Osasco";
@@ -45,7 +48,7 @@ public class HomePageTests extends BaseTests {
     }
 
     @Test
-    public void testPreencherInput_ValidarRetornoFormulario(){
+    public void testPreencherInput_ValidarRetornoFormulario() throws IOException {
         ElementsPage elementsPage = homePage.clicarBtnElements();
         TexBoxPage texBoxPage = elementsPage.clicarBtnTexBox();
         texBoxPage.preencherFullName(name);
@@ -54,11 +57,14 @@ public class HomePageTests extends BaseTests {
         texBoxPage.preencherPermanentAddress(inputPermanentAddress);
         texBoxPage.clicarBtnSubmit();
 
+        capturarTela(name);
         // validação
         assertThat(texBoxPage.outputName(), is (name));
         assertThat(texBoxPage.outputEmail(),is(inputEmail));
         assertThat(texBoxPage.outputCurrentAddress(),is(inputCurrentAddress));
         assertThat(texBoxPage.outputPermanentAddress(), is(inputPermanentAddress));
+
+
 
 
 

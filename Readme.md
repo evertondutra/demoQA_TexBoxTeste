@@ -1,5 +1,5 @@
 <h1>Teste Web</h1>
-<h2>site: <a>https://demoqa.com</a></h2>
+site: <a>https://demoqa.com</a>
 
 projeto java maven dependencias <a>https://mvnrepository.com <br>
 Cucumber JVM: JUnit <a>https://mvnrepository.com/artifact/io.cucumber/cucumber-junit <br>
